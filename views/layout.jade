@@ -13,12 +13,14 @@ html
 						a(href="/") Home
 					li
 						a(href="/ask") Ask
-					//- if (req.isAuthenticated())
-					//- 	li
-					//- 		a(href="/logout") Logout
-					//- else
-					//- 	li
-					//- 		a(href="/login") Login
+					li
+						a(href="/signup") Signup
+					if (req.isAuthenticated())
+						li
+							a(href="/logout") Logout
+					else
+						li
+							a(href="/login") Login
 
 			block content
 		script(src="http://code.jquery.com/jquery-1.10.1.min.js")
