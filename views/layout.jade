@@ -1,0 +1,25 @@
+doctype 5
+html
+	head
+		title= "LectureSync"
+		//- link(rel='stylesheet', href='/css/bootstrap.css')
+		//- link(rel='stylesheet', href='/css/style.css')
+		meta(name="viewport", content="width=device-width")
+	body
+		div.container
+			div.header
+				ul.nav.nav-pills.pull-right
+					li
+						a(href="/") Home
+					li
+						a(href="/ask") Ask
+					//- if (req.isAuthenticated())
+					//- 	li
+					//- 		a(href="/logout") Logout
+					//- else
+					//- 	li
+					//- 		a(href="/login") Login
+
+			block content
+		script(src="http://code.jquery.com/jquery-1.10.1.min.js")
+		block scripts	
