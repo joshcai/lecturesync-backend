@@ -12,6 +12,7 @@ var LectureSchema = new Schema({
   name: { type: String, default: '' },
   slides: { type: String, default: '' },
   recording: { type: String, default: '' },
+  created: { type: Date, default: Date.now },
   delay: [{ type: Number}]
 })
 

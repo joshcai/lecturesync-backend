@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	div.row
+		div.col-md-6.col-md-offset-3
+			h1= 'Login'
+			if error
+				p= error
+			form(method="post")
+				div
+					span Username:
+					input.form-control(type="text", name="username", value=username)
+				div
+					span Password:
+					input.form-control(type="password", name="password")
+				input(type="submit")
+			a(href='/') Home

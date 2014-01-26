@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-// var User = mongoose.model('User');
+var User = mongoose.model('User');
 var Lecture = mongoose.model('Lecture');
 
 
@@ -33,7 +33,9 @@ exports.index = function(req, res){
 		var query = Lecture.find({ 'authorId': req.user._id })
 						.sort({'created': -1})
 		query.exec(function(err, lectures){
-			res.render('index', {lectures: lectures})
+			User.findById(req.user._id, function(err, user){
+				res.render('index', {lectures: lectures, user: user})
+			})
 		})
 	}
 	else

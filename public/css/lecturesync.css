@@ -1,0 +1,111 @@
+body {
+	background-color:#001F5c
+}
+#title {
+	text-align:left;
+	color:#ffffff;
+	font-size:45px;
+	font-family:"Verdana", "Arial", sans serif;
+	background-color:#001F5c;
+	max-width: 1200 px;
+	margin-left:20px;
+}
+#plus{
+	color:#FFFF33;
+	font-size:22px;
+	font-family:"Verdana", "Arial", sans serif;
+}
+#tagline{
+	color:#FFFF33;
+	font-size:16px;
+	font-family:"Verdana", "Arial", sans serif;
+	padding-left: 10px
+	
+}
+#naming{
+	color:#ffffff;
+	font-family: "Eras Light ITC","Century Gothic", sans serif;
+	font-size:28px;
+	text-align: center; 
+	margin-top:15px;
+	margin-bottom:10px;
+}
+#ppt {	
+	background-color:#ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	height: 500px;
+	width: 729.8px;
+	margin-bottom: 45px;
+}
+#controlpanel{
+	position:fixed;
+	bottom:50px;
+	right:0px;
+	padding-bottom: 30px;
+	padding-right: 10px;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+#right{
+	margin-left: 100px;
+	margin-top:150px;
+	color:#ffffff;
+	font-family:"arial", san serif;
+	font-size:26px	
+}
+#button{
+	padding-top:80px;
+	width: 250x;
+	text-align:center;
+}
+#intro{
+	color:#ffffff;
+	font-size:20px;
+	font-family:"arial", san serif;
+	margin-left:30px;
+}
+#introimg{
+	height: 180px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top: 15px;
+}
+#left{
+	color:#ffffff;
+	font-size: 30px;
+	font-family:"arial", sans serif;
+	padding-right:40px;
+	padding-left:40px;
+	padding-top:80px;
+	text-align:center}
+#lecturetitle{
+	color:#FFFF33;
+	font-size: 40px;
+	font-family:"arial", san serif;
+	margin-left: 200px;
+	margin-top: 80px;
+}
+.lecturelist{
+	color:#ffffff;
+	font-size:26px;
+	font-family:"arial", sans serif;
+	margin-left: 270px;
+}
+.dates{
+	color:#ffffff;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-family:"century gothic", sans serif;
+	padding-right: 40px;
+	padding-left: 10px;
+}
+
+#menu{
+	position:fixed;
+	bottom: 50px;
+	right: 0px;
+	padding-right: 10px;
+	height: 40px; 
+}
+	

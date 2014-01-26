@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  #title
+    | lecture
+    span#plus &plus;
+    | sync
+    span#tagline  recording your lectures - slide by slide 
+  #lecturetitle  your saved lectures 
+  .lecturelist
+    span.dates  Jan 25 
+    | Lecture title
+  #menu
+    img(src='/img/newlecture.png', alt='Start a New Lecture', width='200px')
+    img(src='/img/logout.png', alt='Log Out', width='200px')

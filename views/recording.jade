@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  #title
+    | lecture
+    span#plus &plus;
+    | sync
+    span#tagline  recording your lectures - slide by slide 
+    hr(width='50%', color='#000066')
+  #naming  Click Here to Rename Your Lecture 
+  #ppt
+    .row
+      ..col-md-3..col-md-offset-9
+        #controlpanel
+          img(src='/img/nextslide.png', alt='Next Slide', width='120px')
+          br
+          br
+          img(src='/img/upload.png', alt='Upload Document', width='130px')
+          br
+          br
+          img(src='/img/start.png', alt='Start Recording', width='130px')
+          br
+          br
+          img(src='/img/done.png', alt='Done Recording', width='130px')

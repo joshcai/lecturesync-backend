@@ -1,12 +1,53 @@
 extends layout
 
 block content
-	h1= "Hello World"
-	if lectures
-		each lecture in lectures
-			a(href="lecture/"+lecture._id)
-				h3= lecture.name
+  if(!req.isAuthenticated())
+    .row
+      .col-md-4
+        #right
+          #Login
+            form(role='form', method='post', action='/login')
+              div.form-group
+                label user
+                input(type="text", class="form-control", name="username", placeholder="Username")
+              div.form-group
+                label password
+                input(type="password", class="form-control", name="password", placeholder="Password")
+              #button
+                input(type="image", src= '/img/welcome.png', border='0', alt='Login', width='150px')
+      .col-md-8
+        #left
+          | We&apos;ll help you make your own narrated webcasts
+          br
+          | of your professors lectures&period;
+          br
+          br
+          | It&apos;s simple to create useful recordings&period;
+          br
+          #introimg
+            img#introimg(src='/img/uploadcomp.png', alt='Upload your pdf file')
+            img#introimg(src='/img/microphone.png', alt='record and create cues')
+            img#introimg(src='/img/save.png', alt='save files')
+          br
+  else
+    #title
+      | lecture
+      span#plus &plus;
+      | sync
+      span#tagline  recording your lectures - slide by slide 
+    #lecturetitle  your saved lectures 
+    .lecturelist
+      if lectures
+        each lecture in lectures     
+          span.dates  Jan 25 
+          a(href="lecture/"+lecture._id)= lecture.name
+          br
+      else
+        | "You don't have any lectures saved!"
+    #menu
+      a(href="/upload")
+        img(src='/img/newlecture.png', alt='Start a New Lecture', width='200px')
+      a(href="/logout")
+        img(src='/img/logout.png', alt='Log Out', width='200px')
 
-
-	
 
