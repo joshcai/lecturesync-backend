@@ -60,7 +60,9 @@
   //   saveAudio();
         $("#start").prop("disabled", false);
         $("#stop").prop("disabled", true);
+        console.log("stop fired");
         $("#delay_values").val(JSON.stringify(delay));
+        $("#submit").prop("disabled", false);
    }
     //
     // Go to previous page
