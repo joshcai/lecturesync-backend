@@ -78,6 +78,12 @@ exports.doCreate = function(req, res){
 			{
 				lecture.delay.push(delay_array[i]);
 			}
+			var note_array = JSON.parse(req.body.note_values);
+			console.log(note_array);
+			for(var i = 0; i < note_array.length; i++)
+			{
+				lecture.note.push(note_array[i]);
+			}
 			lecture.save(function(err){
 				if(err)
 					console.log('error');

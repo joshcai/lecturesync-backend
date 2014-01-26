@@ -13,7 +13,8 @@ var LectureSchema = new Schema({
   slides: { type: String, default: '' },
   recording: { type: String, default: '' },
   created: { type: Date, default: Date.now },
-  delay: [{ type: Number}]
+  delay: [{ type: Number}],
+  note: [{ type: String}]
 })
 
 mongoose.model('Lecture', LectureSchema)

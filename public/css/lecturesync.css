@@ -47,6 +47,18 @@ body {
 	padding-left: 20px;
 	padding-top: 20px;
 }
+#note{
+	position:fixed;
+	width:200px;
+	top:100px;
+	left:10px;
+/*	bottom:50px;
+	right:0px;
+	padding-bottom: 30px;
+	padding-right: 10px;
+	padding-left: 20px;
+	padding-top: 20px;*/
+}
 #right{
 	margin-left: 100px;
 	margin-top:150px;

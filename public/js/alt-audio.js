@@ -47,16 +47,16 @@ function doneEncoding( blob ) {
        audio.src = window.URL.createObjectURL(s);
     });
 
-    var fd = new FormData();
-    fd.append("audio", blob);
+    // var fd = new FormData();
+    // fd.append("audio", blob);
 
-    var y = new XMLHttpRequest();
-    y.onload = function() {
-        console.log("File updated");
+    // var y = new XMLHttpRequest();
+    // y.onload = function() {
+    //     console.log("File updated");
 
-    };
-    y.open('POST', '/audio', true);
-    y.send(fd);
+    // };
+    // y.open('POST', '/audio', true);
+    // y.send(fd);
 
     /*Recorder.forceDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     recIndex++;*/

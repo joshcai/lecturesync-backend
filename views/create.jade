@@ -7,29 +7,35 @@ block content
     span#plus &plus;
     | sync
     span#tagline  recording your lectures - slide by slide 
-    hr(width='50%', color='#000066')
   form(method="post")
     #naming 
       .row
         .col-md-6.col-md-offset-3
           input.form-control(type="text", placeholder="Name of Lecture", name="name") 
       input#delay_values(type="hidden", name="delay_values")
-      input#submit(type="submit", disabled) Submit
-  div.text-center
-    canvas#the-canvas(style='border:1px solid black')
-    br
-    audio(controls)
+      input#note_values(type="hidden", name="note_values")
+      input#submit.btn.btn-success(type="submit", disabled) Submit
   .row
-    .col-md-3.col-md-offset-9
+    .col-md-2
+      textarea#note.form-control(placeholder="Type notes here...", rows="20", cols="5")
+
+    .col-md-8.text-center
+      canvas#the-canvas(style="width:100%", height="1000", width="4000")
+      br
+      audio(controls)
+    .col-md-2
       #controlpanel
-        .text-center
+        .text-center(style="color:white")
           span
           | Page:
           span#page_num
           | /
           span#page_count
+          &nbsp;&nbsp;&nbsp;&nbsp;
         br
-        button#replay(onclick='audio.play(); goReplay()') Replay
+        div.text-center
+          button#replay.btn.btn-danger(type=button, onclick='audio.play(); goReplay()') Replay
+          &nbsp;&nbsp;&nbsp;
         br
         //- button#next( onclick='goNextWrapper()')
           //- img(src='/img/nextslide.png', alt='Next Slide', width='120px')

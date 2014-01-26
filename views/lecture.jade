@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	//- h1= title
+	//- p Welcome to #{title}
+	//- p What is up
+	div.row
+		div.col-md-10.col-md-offset-1.text-center
+			div
+				if(req.user)
+					div(style="color:white")
+						h3.topfix= lecture.name
+			a(href="/") Home 
+

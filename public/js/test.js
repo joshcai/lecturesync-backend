@@ -1,10 +1,11 @@
 	var d ;
     var delay;
     var prev_time;
+    var notes = [];
     function delay_function(delay){
       for(var i = 0; i < delay.length; i++)
       {
-        setTimeout(function(){goNext()},delay[i]);
+        setTimeout(function(){goNextNote()},delay[i]);
       }
     }
     // var url = 'http://cdn.mozilla.net/pdfjs/tracemonkey.pdf';
@@ -18,7 +19,6 @@
 
     var pdfDoc = null,
         pageNum = 1,
-        scale = 0.8,
         canvas = document.getElementById('the-canvas'),
         ctx = canvas.getContext('2d');
 
@@ -28,7 +28,7 @@
     function renderPage(num) {
       // Using promise to fetch the page
       pdfDoc.getPage(num).then(function(page) {
-        var viewport = page.getViewport(scale);
+        var viewport = page.getViewport(canvas.width / page.getViewport(1).width);
         canvas.height = viewport.height;
         canvas.width = viewport.width;
 
@@ -43,6 +43,10 @@
       // Update page counters
       document.getElementById('page_num').textContent = pageNum;
       document.getElementById('page_count').textContent = pdfDoc.numPages;
+    }
+    function grabNote(){
+    	notes.push($("#note").val());
+    	$("#note").val("");
     }
 
     function goStart(){
@@ -62,6 +66,8 @@
         $("#stop").prop("disabled", true);
         console.log("stop fired");
         $("#delay_values").val(JSON.stringify(delay));
+        grabNote();
+        $("#note_values").val(JSON.stringify(notes));
         $("#submit").prop("disabled", false);
    }
     //
@@ -92,7 +98,12 @@
         console.log(temp_time);
         delay.push(temp_time - prev_time);
       }
+      grabNote();
       goNext();
+    }
+    function goNextNote(){
+    	$("#note").val(notes[pageNum]);
+    	goNext();
     }
 
     function goReplay(){
@@ -102,6 +113,7 @@
      pageNum = 1;
      renderPage(pageNum);
      console.log(delay);
+     $("#note").val(notes[0]);
      delay_function(delay);
     }
     //

@@ -2,14 +2,22 @@ extends layout
 
 block content
 	div.row
-		div.col-md-8.centered.text-center
+		div.col-md-6.col-md-offset-3.text-center
 			if error
 				p= error
+			br
+			br
+			h3(style='color:white;')= "Upload a file..."
+			br
+			br
+			br
+			br
 			form(method="post", enctype='multipart/form-data')
 
 				div
 					//- span Answer 1:
 					input.form-control(type="file" name="slides")
+				br
 				button(type="submit" class="btn btn-primary") Submit
 			//- a(href='/') Home
 
