@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div.row
+		div.col-md-8.centered.text-center
+			if error
+				p= error
+			form(method="post", enctype='multipart/form-data')
+
+				div
+					//- span Answer 1:
+					input.form-control(type="file" name="slides")
+				button(type="submit" class="btn btn-primary") Submit
+			//- a(href='/') Home
+

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	div.row
+		div.col-md-8.centered.text-center
+			if error
+				p= error
+			form(method="post")
+
+				div
+					//- span Answer 1:
+					input.form-control(type="text", placeholder="Name of Lecture", name="name")
+				button(type="submit" class="btn btn-primary") Submit
+			//- a(href='/') Home
+			canvas#the-canvas(style="border:1px solid black")
+
+block scripts
+	script(src='/js/jquery-1.10.2.min.js')
+	script(src='/js/pdf.js')
+	script(src='/js/test.js')
+

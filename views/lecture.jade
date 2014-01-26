@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	//- h1= title
+	//- p Welcome to #{title}
+	//- p What is up
+	div.row
+		div.col-md-10.centered.text-center
+			div#questionContainer
+				if(req.user)
+					div.text-left
+						h3.topfix= lecture.name
+

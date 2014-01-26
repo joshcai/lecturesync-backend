@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 // var User = mongoose.model('User');
-// var Question = mongoose.model('Question');
-// var Answer = mongoose.model('Answer');
+var Lecture = mongoose.model('Lecture');
 
 
 
@@ -29,6 +28,17 @@ exports.index = function(req, res){
 	// 		}});
 	// 	})
 	// })
-	res.render('index');
+	if(req.user)
+	{
+		var query = Lecture.find({ 'authorId': req.user._id })
+						.sort({'created': -1})
+		query.exec(function(err, lectures){
+			res.render('index', {lectures: lectures})
+		})
+	}
+	else
+	{
+		res.render('index');
+	}
 
 };

@@ -2,5 +2,11 @@ extends layout
 
 block content
 	h1= "Hello World"
+	if lectures
+		each lecture in lectures
+			a(href="lecture/"+lecture._id)
+				h3= lecture.name
+
+
 	
 

@@ -1,6 +1,6 @@
 var routes = require('../controllers/application');
 var user = require('../controllers/user');
-// var question = require('../controllers/question');
+var lecture = require('../controllers/lecture');
 
 module.exports = function(app, passport){
 
@@ -24,11 +24,14 @@ module.exports = function(app, passport){
 	// 	passport.authenticate('facebook', {
 	// 	  	failureRedirect: '/login'
 	// 	}), user.doLogin)	
+		
+	app.get('/upload', lecture.upload);
+	app.post('/upload', lecture.doUpload);
 
-	// app.get('/ask', question.ask);
-	// app.post('/ask', question.doAsk);
+	app.get('/create', lecture.create);
+	app.post('/create', lecture.doCreate);
 
-	// app.get('/question/:id', question.display)
+	app.get('/lecture/:id', lecture.display)
 	// app.get('/follow/:id', question.follow)
 	// app.post('/follow/:id', question.doFollow)
 
