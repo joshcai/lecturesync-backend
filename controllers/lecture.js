@@ -72,6 +72,12 @@ exports.doCreate = function(req, res){
 		else
 		{
 			lecture.name = req.body.name;
+			var delay_array = JSON.parse(req.body.delay_values);
+			console.log(delay_array);
+			for(var i = 0; i < delay_array.length; i++)
+			{
+				lecture.delay.push(delay_array[i]);
+			}
 			lecture.save(function(err){
 				if(err)
 					console.log('error');
