@@ -121,3 +121,6 @@ body {
 	height: 40px; 
 }
 	
+:disabled{
+	-webkit-filter: grayscale(100%);
+}

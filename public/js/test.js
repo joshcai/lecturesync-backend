@@ -57,13 +57,15 @@
         console.log(prev_time);
         delay = [];
         $("#start").prop("disabled", true);
+        $("#next").prop("disabled", false);
         $("#stop").prop("disabled", false);
     }
     function goStop(){
 //        stopRecording();
   //   saveAudio();
-        $("#start").prop("disabled", false);
+        $("#replay").prop("disabled", false);
         $("#stop").prop("disabled", true);
+        $("#next").prop("disabled", true);
         console.log("stop fired");
         $("#delay_values").val(JSON.stringify(delay));
         grabNote();

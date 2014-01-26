@@ -34,12 +34,12 @@ block content
           &nbsp;&nbsp;&nbsp;&nbsp;
         br
         div.text-center
-          button#replay.btn.btn-danger(type=button, onclick='audio.play(); goReplay()') Replay
+          button#replay.btn.btn-danger(type=button, onclick='audio.play(); goReplay()', disabled) Replay
           &nbsp;&nbsp;&nbsp;
         br
         //- button#next( onclick='goNextWrapper()')
           //- img(src='/img/nextslide.png', alt='Next Slide', width='120px')
-        input#next(type="image", onclick='goNextWrapper()', src='/img/nextslide.png', width='120px')
+        input#next(type="image", onclick='goNextWrapper()', src='/img/nextslide.png', width='120px', disabled)
         br
         //- br
         //- img(src='/img/upload.png', alt='Upload Document', width='130px')
