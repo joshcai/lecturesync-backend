@@ -1,14 +1,55 @@
 extends layout
 
 block content
-	//- h1= title
-	//- p Welcome to #{title}
-	//- p What is up
-	div.row
-		div.col-md-10.col-md-offset-1.text-center
-			div
-				if(req.user)
-					div(style="color:white")
-						h3.topfix= lecture.name
-			a(href="/") Home 
+  div#slides_dest(data-val=lecture.slides)
+  div#notes_array(data-val=lecture.note)
+  div#delay_array(data-val=lecture.delay)
+  a(href="/")
+    #title
+      | lecture
+      span#plus &plus;
+      | sync
+      span#tagline  recording your lectures - slide by slide 
+  #naming 
+    .row
+      .col-md-6.col-md-offset-3
+        h3(style="color:white")= lecture.name
+  .row
+    .col-md-2
+      textarea#note.form-control(rows="20", cols="5")
+
+    .col-md-8.text-center
+      canvas#the-canvas(style="width:100%", height="1000", width="4000")
+      br
+      audio(controls)
+    .col-md-2
+      #controlpanel
+        .text-center(style="color:white")
+          span
+          | Page:
+          span#page_num
+          | /
+          span#page_count
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        br
+        div.text-center
+          button#replay.btn.btn-danger(type=button, onclick='goReplay()') Replay
+          &nbsp;&nbsp;&nbsp;
+
+
+
+block headscripts
+  script(src='/js/jquery-1.10.2.min.js')
+  script(type='text/javascript', src='/js/pdf.js')
+
+block scripts
+
+
+  script(type='text/javascript').
+    doc=$("#slides_dest").attr("data-val")
+    console.log(doc);
+    var notes = JSON.parse($("#notes_array").attr("data-val"));
+    var delay = JSON.parse($("#delay_array").attr("data-val"));
+  script(src='/js/test.js')
+
 

@@ -2,11 +2,12 @@ extends layout
 
 block content
   div#slides_dest(data-val=slides)
-  #title
-    | lecture
-    span#plus &plus;
-    | sync
-    span#tagline  recording your lectures - slide by slide 
+  a(href="/")
+    #title
+      | lecture
+      span#plus &plus;
+      | sync
+      span#tagline  recording your lectures - slide by slide 
   form(method="post")
     #naming 
       .row
@@ -69,5 +70,7 @@ block scripts
   script(type='text/javascript').
     doc=$("#slides_dest").attr("data-val")
     console.log(doc);
+    var notes=[];
+    var delay;
   script(src='/js/test.js')
 

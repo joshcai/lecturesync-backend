@@ -1,7 +1,5 @@
 	var d ;
-    var delay;
     var prev_time;
-    var notes = [];
     function delay_function(delay){
       for(var i = 0; i < delay.length; i++)
       {
@@ -86,8 +84,10 @@
     // Go to next page
     //
     function goNext() {
-      if (pageNum >= pdfDoc.numPages)
-        return;
+      if (pageNum == pdfDoc.numPages-1)
+      {
+      	$("#next").prop("disabled", true);
+    	}
       pageNum++;
       renderPage(pageNum);
     }
