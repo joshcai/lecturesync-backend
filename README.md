@@ -9,7 +9,7 @@ Technologies used: NodeJS (Express framework), mongoDB, Mozilla's pdf.js. Hosted
 
 ---------------------
 
-*Current features:*
+__Current features:__
 
 Uploading pdf slides 
 
@@ -23,7 +23,7 @@ Saving lectures to account for access anywhere
 
 ---------------------
 
-*Future features:*
+__Future features:__
 
 Share notes with your friends
 
