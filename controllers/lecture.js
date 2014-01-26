@@ -32,8 +32,17 @@ exports.doUpload = function(req, res){
 		  fs.writeFile(newPath, data, function (err) {
 		  	if(err) console.log(err);
 		  	/// let's see it
-
-		  	res.redirect("/pdf/" + slidesName);
+		  	else{
+		  		var lecture = new Lecture()
+		  		lecture.authorId = req.user.id;
+		  		lecture.slides = "/pdf/" + slidesName;
+		  		lecture.save(function(err){
+		  			if(err){
+		  				return res.render('upload')
+		  			}
+		  			return res.redirect("/create/"+lecture._id)
+		  		})
+		  	}	
 
 		  });
 		}
@@ -41,27 +50,36 @@ exports.doUpload = function(req, res){
 }
 
 exports.create = function(req, res){
-	var query = User.findOne({'_id':req.user._id})
-	query.exec(function(err, user){
-	  res.render('create', {'user': user});
-	})
-};
-
-exports.doCreate = function(req, res){
-
-	var lecture = new Lecture(req.body)
-	lecture.authorId = req.user.id
-
-	lecture.save(function (err) {
+	var id = req.params.id;
+	var query = Lecture.findOne({'_id': id})
+	query.exec(function(err, lecture){
 		if (err) {
 		  return res.render('create', {
 		    // errors: utils.errors(err.errors),
 		    lecture: lecture
 		  })
 		}
-		return res.redirect('/lecture/'+lecture._id)
+		return res.render('create', {slides: lecture.slides})
 	})
+};
 
+exports.doCreate = function(req, res){
+	Lecture.findById(req.params.id, function(err, lecture){
+		if(!lecture)
+		{
+			console.log("error");
+		}
+		else
+		{
+			lecture.name = req.body.name;
+			lecture.save(function(err){
+				if(err)
+					console.log('error');
+				else
+					return res.redirect('/lecture/'+lecture._id);
+			})
+		}
+	})
 };
 
 exports.display = function(req, res){

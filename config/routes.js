@@ -28,8 +28,8 @@ module.exports = function(app, passport){
 	app.get('/upload', lecture.upload);
 	app.post('/upload', lecture.doUpload);
 
-	app.get('/create', lecture.create);
-	app.post('/create', lecture.doCreate);
+	app.get('/create/:id', lecture.create);
+	app.post('/create/:id', lecture.doCreate);
 
 	app.get('/lecture/:id', lecture.display)
 	// app.get('/follow/:id', question.follow)

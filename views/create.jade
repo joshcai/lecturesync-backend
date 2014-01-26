@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	div#slides_dest(data-val=slides)
 	div.row
 		div.col-md-8.centered.text-center
 			if error
@@ -12,10 +13,30 @@ block content
 					input.form-control(type="text", placeholder="Name of Lecture", name="name")
 				button(type="submit" class="btn btn-primary") Submit
 			//- a(href='/') Home
-			canvas#the-canvas(style="border:1px solid black")
+		div
+			button#start(onclick='toggleRecording(this); goStart()') Start
+			button#stop(onclick='saveAudio(); goStop()', disabled='disabled') Stop
+			button#prev(onclick='goPrevious()') Previous 
+			button#next(onclick='goNextWrapper()') Next
+			button#replay(onclick='audio.play(); goReplay()') Replay
+			span
+			| Page:
+			span#page_num
+			| /
+			span#page_count
+		div
+			canvas#the-canvas(style='border:1px solid black')
+		audio(controls)
 
 block scripts
 	script(src='/js/jquery-1.10.2.min.js')
-	script(src='/js/pdf.js')
+	script(type='text/javascript', src='/js/AudioContextMonkeyPatch.js')
+	script(type='text/javascript', src='/js/pdf.js')
+	script(type='text/javascript', src='/js/recorder.js')
+	script(type='text/javascript', src='/js/alt-audio.js')
+
+	script(type='text/javascript').
+		doc=$("#slides_dest").attr("data-val")
+		console.log(doc);
 	script(src='/js/test.js')
 
